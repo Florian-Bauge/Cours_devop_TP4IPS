@@ -14,11 +14,7 @@ pipeline {
         echo 'Test'
         
       }
-      post {
-        always {
-          junit 'test-reports/*.xml'
-        }
-      }
+     
     }
   }
 }
