@@ -6,7 +6,7 @@ pipeline {
         echo 'Build'
         
         echo 'App'
-        
+        sh 'python app.py'
       }
     }
     stage('Test') {
