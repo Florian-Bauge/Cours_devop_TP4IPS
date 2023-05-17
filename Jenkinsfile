@@ -1,28 +1,22 @@
 pipeline {
   agent any
   stages {
-    stage('build') {
+    stage('Build') {
       steps {
-       echo 'build'
-      }
-      steps{
-       sh 'pip install -r requirements.txt'
+        echo 'Build'
+        sh 'pip install -r requirements.txt'
       }
     }
-    stage('test') {
+    stage('Test') {
       steps {
-        echo 'test'
+        echo 'Test'
+        sh 'python test.py'
       }
-           steps {
-       sh 'python test.py'
-     }
-            post {
-       always {
-         junit 'test-reports/*.xml'
-       }
-
-
+      post {
+        always {
+          junit 'test-reports/*.xml'
+        }
+      }
     }
   }
-}
 }
